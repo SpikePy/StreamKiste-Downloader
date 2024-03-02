@@ -9,7 +9,7 @@ printf '======================\n\n'
 printf 'Movie Name: '
 read name
 
-name_slug=$(echo "${name}" | tr -c '[:alnum:]' '_')
+name_slug=$(printf "${name}" | tr -c '[:alnum:]' '_')
 path_full_movie=~/"${name_slug}".ts
 
 mkdir -p "${name_slug}_segments"
