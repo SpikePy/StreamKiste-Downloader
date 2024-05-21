@@ -10,6 +10,8 @@ When using the Mirror **Streamtape** you can just watch the Network tab of the b
 
 # [Tinyzone](https://ww3.tinyzone.org/)
 
+At first open a stream and watch the network traffic in your browser. Try to find a pattern in the content that is getting downloaded and make sure to watch all file types.
+
 For some movies you need to give a certain file ending
 
 ```sh
