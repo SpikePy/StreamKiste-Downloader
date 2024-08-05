@@ -31,3 +31,8 @@ done
 
 find /mnt/c/Users/rho/Desktop/oppenheimer -size -2k -delete; cat * > ../movie.mp4
 ```
+
+# URLs
+
+- [Tinyzone](https://ww3.tinyzone.org/)
+- [StreamKiste](https://streamkiste.tv/)
