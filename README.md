@@ -8,6 +8,20 @@ The logic is only layed out to use URLs from the **VOE** mirror!
 When using the Mirror **Streamtape** you can just watch the Network tab of the browser and download that one file via e.g. **wget**.
 
 
+# ZDF
+
+```sh
+find . -size -1k -delete
+
+for segment in $(seq 0 1082); do
+	url="https://zdfvod-pckgr.akamaized.net/i/,/mp4/de/zdf/24/08/240806_1950_2599_tischtennis_vf_team_ger_swe_m_l2f_spo/1/240806_1950_2599_tischtennis_vf_team_ger_swe_m_l2f_spo,_776k_p11,_1496k_p13,_2296k_p14,_3296k_p15,v13.mp4.csmil/segment-${segment}-f4-v1-a1.ts"
+	if ! [ -f $(printf '%04d' ${segment}).mp4 ]; then
+		wget "${url}" -O- > $(printf '%04d' ${segment}).mp4
+	fi
+done
+cat * > ../combined.mp4
+```
+
 # [Tinyzone](https://ww3.tinyzone.org/)
 
 At first open a stream and watch the network traffic in your browser. Try to find a pattern in the content that is getting downloaded and make sure to watch all file types.
