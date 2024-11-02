@@ -16,8 +16,9 @@ for segment in $(seq 1 944); do
 		wget -q "${url}" -O- > $(printf '%04d' ${segment}).mp4
 	fi
 done
+find . -size -1k
 find . -size -1k -delete
-cat * > ../${PWD##*/}
+cat * > ../${PWD##*/}.mp4
 ```
 
 # ZDF
