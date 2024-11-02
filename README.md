@@ -7,6 +7,18 @@ Make sure you don't run into the DNS block by using 9.9.9.9 or *DNS Over HTTPS*.
 The logic is only layed out to use URLs from the **VOE** mirror!
 When using the Mirror **Streamtape** you can just watch the Network tab of the browser and download that one file via e.g. **wget**.
 
+# StramingKiste/VOD
+
+```sh
+for segment in $(seq 1 944); do
+	url="https://delivery-node-3ps6hllpqglekwne.voe-network.net/engine/hls2/01/08909/y1lbr5lqvp6w_,n,.urlset/seg-${segment}-v1-a1.ts?t=62lzT2xxa9VWTM1ATbngjoY4T7HVvXtfpzS_GKO37Vs&s=1730571076&e=14400&f=44549939&node=delivery-node-3ps6hllpqglekwne.voe-network.net&i=78.54&sp=2500&asn=6805"
+	if ! [ -f $(printf '%04d' $segment).mp4 ]; then
+		wget -q "${url}" -O- > $(printf '%04d' ${segment}).mp4
+	fi
+done
+find . -size -1k -delete
+cat * > ../${PWD##*/}
+```
 
 # ZDF
 
